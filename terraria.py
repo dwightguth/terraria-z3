@@ -283,7 +283,7 @@ print(o.check())
 m = o.model()
 print(m.eval(total))
 for n in npcs:
-  print(n.name, ":", m[n.biome], "=", str(m.eval(happiness(n)).as_long() * 5 + 75) + "%", end=' ')
+  print(n.name, ":", m[n.biome], "=", str(m.eval(happiness(n)).as_long() * 6 + 77) + "%", end=' ')
   near=False
   for n2 in npcs:
     if n.name != n2.name:
