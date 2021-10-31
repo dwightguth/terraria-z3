@@ -219,22 +219,20 @@ def happiness(npc):
     result = modifier(l, npc, 6, result)
   for l in npc._hates:
     result = modifier(l, npc, 12, result)
-  return If(result < 78, 0,
-         If(result < 83, 1,
-         If(result < 88, 2,
-         If(result < 93, 3,
+  return If(result < 80, 0,
+         If(result < 86, 1,
+         If(result < 92, 2,
+         If(result < 98, 3,
          If(result < 98, 4,
-         If(result < 103, 5,
-         If(result < 108, 6,
-         If(result < 113, 7,
-         If(result < 118, 8,
-         If(result < 123, 9,
-         If(result < 128, 10,
-         If(result < 133, 11,
-         If(result < 138, 12,
-         If(result < 143, 13,
-         If(result < 148, 14,
-         15)))))))))))))))
+         If(result < 104, 5,
+         If(result < 110, 6,
+         If(result < 116, 7,
+         If(result < 122, 8,
+         If(result < 128, 9,
+         If(result < 134, 10,
+         If(result < 140, 11,
+         If(result < 146, 12,
+         13)))))))))))))
 
 total = 0
 for n in npcs:
