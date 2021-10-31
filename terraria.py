@@ -147,7 +147,6 @@ stylist.hates(goblin_tinkerer)
 
 angler.likes(ocean, demolitionist, party_girl, tax_collector)
 angler.hates(tavernkeep)
-angler.sells = False
 
 pirate.loves(angler)
 pirate.likes(ocean, tavernkeep)
@@ -163,7 +162,6 @@ tax_collector.loves(merchant)
 tax_collector.likes(snow, party_girl)
 tax_collector.dislikes(hallow, demolitionist, mechanic)
 #tax_collector.hates(santa)
-tax_collector.sells = False
 
 cyborg.likes(snow, steampunker,  pirate, stylist)
 cyborg.dislikes(jungle, zoologist)
