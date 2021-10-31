@@ -210,15 +210,15 @@ def modifier(l, n, mod, result):
       raise
 
 def happiness(npc):
-  result = 90
+  result = 95
   for l in npc._loves:
-    result = modifier(l, npc, -10, result)
+    result = modifier(l, npc, -12, result)
   for l in npc._likes:
-    result = modifier(l, npc, -5, result)
+    result = modifier(l, npc, -6, result)
   for l in npc._dislikes:
-    result = modifier(l, npc, 5, result)
+    result = modifier(l, npc, 6, result)
   for l in npc._hates:
-    result = modifier(l, npc, 10, result)
+    result = modifier(l, npc, 12, result)
   return If(result < 78, 0,
          If(result < 83, 1,
          If(result < 88, 2,
