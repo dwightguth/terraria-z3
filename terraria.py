@@ -251,7 +251,7 @@ o.add(goblin_tinkerer.happiness <= 0)
 o.add(tax_collector.happiness <= 2)
 o.add(angler.happiness <= 2)
 for b in biomes:
-  o.add(biome_sells_pylon(b))
+  #o.add(biome_sells_pylon(b))
   nbiome = 0
   for n in npcs:
     nbiome += If(n.biome == b.ctr, 1, 0)
