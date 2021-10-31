@@ -239,6 +239,17 @@ def happiness(npc):
          If(result < 146, 12,
          13)))))))))))))
 
+def sells_pylon(npc):
+  if not npc.sells:
+    return False
+  return happiness(npc) <= 1
+
+def biome_sells_pylon(biome):
+  accum = False
+  for n in npcs:
+    accum = Or(accum, And(sells_pylon(n), n.biome == biome.ctr))
+  return accum
+
 total = 0
 for n in npcs:
   if not n.guide:
@@ -250,6 +261,8 @@ o.add(truffle.biome == mushroom.ctr)
 o.add(goblin_tinkerer.happiness == 0)
 o.add(tax_collector.happiness == 0)
 o.add(angler.happiness == 0)
+for b in biomes:
+  o.add(biome_sells_pylon(b))
 for n in npcs:
   nnear = 0
   for n2 in npcs:
