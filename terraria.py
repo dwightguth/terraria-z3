@@ -263,6 +263,10 @@ o.add(tax_collector.happiness == 0)
 o.add(angler.happiness == 0)
 for b in biomes:
   o.add(biome_sells_pylon(b))
+  nbiome = 0
+  for n in npcs:
+    nbiome += If(n.biome == b.ctr, 1, 0)
+  o.add(nbiome < 4)
 for n in npcs:
   nnear = 0
   for n2 in npcs:
