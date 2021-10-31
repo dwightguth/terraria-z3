@@ -259,8 +259,8 @@ for n in npcs:
 o = Optimize()
 o.add(truffle.biome == mushroom.ctr)
 o.add(goblin_tinkerer.happiness == 0)
-o.add(tax_collector.happiness == 0)
-o.add(angler.happiness == 0)
+o.add(tax_collector.happiness == 1)
+o.add(angler.happiness == 1)
 for b in biomes:
   o.add(biome_sells_pylon(b))
   nbiome = 0
