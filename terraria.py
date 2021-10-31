@@ -231,7 +231,7 @@ def happiness(npc):
 def sells_pylon(npc):
   if not npc.sells:
     return False
-  return happiness(npc) <= 85
+  return happiness(npc) <= 10
 
 def biome_sells_pylon(biome):
   accum = False
