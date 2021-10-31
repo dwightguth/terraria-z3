@@ -255,7 +255,7 @@ for b in biomes:
   nbiome = 0
   for n in npcs:
     nbiome += If(n.biome == b.ctr, 1, 0)
-  o.add(nbiome < 4)
+  o.add(nbiome <= 4)
 for n in npcs:
   nnear = 0
   for n2 in npcs:
