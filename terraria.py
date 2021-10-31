@@ -272,6 +272,9 @@ for n in npcs:
   for n2 in npcs:
     if n.name != n2.name:
       o.add(Implies(n.near[n2.name], n.biome == n2.biome))
+      for n3 in npcs:
+        if n3.name != n2.name and n3.name != n.name:
+          o.add(Implies(And(n.near[n2.name], n2.near[n3.name]), n.near[n3.name]))
       nnear += If(n.near[n2.name], 1, 0)
   o.add(nnear < 3)
 
