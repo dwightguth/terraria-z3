@@ -224,25 +224,14 @@ def happiness(npc):
     result = modifier(l, npc, 6, result)
   for l in npc._hates:
     result = modifier(l, npc, 12, result)
-  return If(result < 80, 0,
-         If(result < 86, 1,
-         If(result < 92, 2,
-         If(result < 98, 3,
-         If(result < 98, 4,
-         If(result < 104, 5,
-         If(result < 110, 6,
-         If(result < 116, 7,
-         If(result < 122, 8,
-         If(result < 128, 9,
-         If(result < 134, 10,
-         If(result < 140, 11,
-         If(result < 146, 12,
-         13)))))))))))))
+  return If(result >= 150, 75,
+         If(result <= 75, 0,
+         result - 75))
 
 def sells_pylon(npc):
   if not npc.sells:
     return False
-  return happiness(npc) <= 1
+  return happiness(npc) <= 85
 
 def biome_sells_pylon(biome):
   accum = False
@@ -259,8 +248,8 @@ for n in npcs:
 o = Optimize()
 o.add(truffle.biome == mushroom.ctr)
 o.add(goblin_tinkerer.happiness == 0)
-o.add(tax_collector.happiness == 1)
-o.add(angler.happiness == 1)
+o.add(tax_collector.happiness <= 2)
+o.add(angler.happiness <= 2)
 for b in biomes:
   o.add(biome_sells_pylon(b))
   nbiome = 0
@@ -283,7 +272,7 @@ print(o.check())
 m = o.model()
 print(m.eval(total))
 for n in npcs:
-  print(n.name, ":", m[n.biome], "=", str(m.eval(happiness(n)).as_long() * 6 + 77) + "%", end=' ')
+  print(n.name, ":", m[n.biome], "=", str(m.eval(happiness(n)).as_long() + 75) + "%", end=' ')
   near=False
   for n2 in npcs:
     if n.name != n2.name:
