@@ -6,6 +6,7 @@ class npc(object):
   def __init__(self, name):
     self.name = name
     self.sells = True
+    self.guide = False
     self._loves = []
     self._likes = []
     self._dislikes = []
@@ -66,6 +67,7 @@ guide.likes(forest, clothier, zoologist)
 guide.dislikes(ocean, steampunker)
 guide.hates(painter)
 guide.sells = False
+guide.guide = True
 
 merchant.likes(forest, golfer, nurse)
 merchant.dislikes(desert, tax_collector)
@@ -85,6 +87,7 @@ nurse.loves(arms_dealer)
 nurse.likes(hallow, wizard)
 nurse.dislikes(snow, dryad, party_girl)
 nurse.hates(zoologist)
+nurse.sells = False
 
 tavernkeep.loves(demolitionist)
 tavernkeep.likes(hallow, goblin_tinkerer)
@@ -147,6 +150,7 @@ stylist.hates(goblin_tinkerer)
 
 angler.likes(ocean, demolitionist, party_girl, tax_collector)
 angler.hates(tavernkeep)
+angler.sells = False
 
 pirate.loves(angler)
 pirate.likes(ocean, tavernkeep)
@@ -162,6 +166,7 @@ tax_collector.loves(merchant)
 tax_collector.likes(snow, party_girl)
 tax_collector.dislikes(hallow, demolitionist, mechanic)
 #tax_collector.hates(santa)
+tax_collector.sells = False
 
 cyborg.likes(snow, steampunker,  pirate, stylist)
 cyborg.dislikes(jungle, zoologist)
@@ -236,7 +241,7 @@ def happiness(npc):
 
 total = 0
 for n in npcs:
-  if n.sells:
+  if not n.guide:
     n.happiness = happiness(n)
     total += n.happiness
 
