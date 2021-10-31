@@ -253,7 +253,7 @@ for n in npcs:
     if n.name != n2.name:
       o.add(Implies(n.near[n2.name], n.biome == n2.biome))
       nnear += If(n.near[n2.name], 1, 0)
-  o.add(nnear < 2)
+  o.add(nnear < 3)
 
 o.minimize(total)
 print(o.check())
