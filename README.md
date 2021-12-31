@@ -25,3 +25,5 @@ To install these dependencies in Ubuntu 20.04, you can run:
 sudo apt-get update
 sudo apt-get install python3 z3 python3-z3
 ```
+
+It is probably possible to install via Z3 for Windows and Python for Windows, but I have not tried it.
